@@ -1,6 +1,5 @@
 import telebot
-from getfromDB import *
-from intoDB import *
+from DB import *
 
 bot = telebot.TeleBot("345809401:AAGUZlD5UdJ0iE7Xd2l2Tygn2mZRjWgCl2I")
 
