@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 import telebot
 
 token = telebot.TeleBot("345809401:AAGUZlD5UdJ0iE7Xd2l2Tygn2mZRjWgCl2I")
