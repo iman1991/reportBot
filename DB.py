@@ -1,17 +1,21 @@
 import pymysql.cursors
+from datetime import datetime
+
+
+now = datetime.now()
 
 def connect():
     connection = pymysql.connect(host='127.0.0.1',
                                  user='root',
                                  password='7087',
-                                 db='reportBot',
+                                 db='report',
                                  charset='utf8mb4',
                                  cursorclass=pymysql.cursors.DictCursor)
     return connection
 
 
-class connection:
-    def __init__(self, request, message):
+class DB:
+    def __init__(self, request = "", message = ""):
         self.request = request
         self.message = message
 
@@ -20,52 +24,125 @@ class connection:
         self.cursor = self.conn.cursor()
         return True
 
-    def res(self):
-    	self.cursor.execute(self.request % (self.message.from_user.id))
-    	result = self.cursor.fetchone()
-    	return result
-
-    def add(self):
-    	self.cursor.execute(self.request % (self.message.from_user.id, self.message.from_user.first_name))
-    	self.conn.commit()
-    	result = self.cursor.fetchone()
-    	return result
-
     def stop(self):
-    	self.cursor.close()
-    	self.conn.close()
-    	return True
+        self.cursor.close()
+        self.conn.close()
+        return True
 
-def userinDB(request, message):
-	obj = connection(request, message)
-	obj.start()
-	res = obj.res()
-	obj.stop()
-	del obj
-	return res
+    def addUser(self):
+        self.cursor.execute(self.request % (self.message.from_user.id, self.message.from_user.first_name))
+        self.conn.commit()
+        result = self.cursor.fetchone()
+        return result
 
-def addUserID(request, message):
-	obj = connection(request, message)
-	obj.start()
-	res = obj.add()
-	obj.stop()
-	del obj
-	return res
+    def getUser(self):
+        self.cursor.execute(self.request % (self.message.from_user.id))
+        result = self.cursor.fetchone()
+        return result
+
+    def getUserID(self):
+        self.cursor.execute(self.request)
+        result = self.cursor.fetchall()
+        return result
+
+    def addReportMorninig(self):
+        print(self.request.text)
+        self.cursor.execute("UPDATE report SET morning='%s' WHERE id='%i' and upload = '%s'" % (self.request.text, self.request.from_user.id, now.date()))
+        self.conn.commit()
+        return True
+
+    def addReportDinner(self):
+        self.cursor.execute("UPDATE report SET dinner='%s' WHERE id='%i' and upload = '%s'" % (self.request.text, self.request.from_user.id, now.date()))
+        self.conn.commit()
+        return True
+
+    def addReportEveninig(self):
+        self.cursor.execute("UPDATE report SET evening='%s' WHERE id='%i' and upload = '%s'" % (self.request.text, self.request.from_user.id, now.date()))
+        self.conn.commit()
+        return True
+
+    def addNull(self, users, date): 
+        for item in users:
+            self.cursor.execute("INSERT INTO report (id, upload) values (%i, '%s')" % (item, date))
+        self.conn.commit()
+        return True
+
+def getuserDB(request, message):
+    obj = DB(request, message)
+    obj.start()
+
+    res = obj.getUser()
+
+    obj.stop()
+    del obj
+    return res
+
+def addUserDB(request, message):
+    obj = DB(request, message)
+    obj.start()
+
+    res = obj.addUser()
+
+    obj.stop()
+    del obj
+    return res
+
+def getUserIDDB(request):
+    obj = DB(request)
+    obj.start()
+
+    res = obj.getUserID()
+
+    obj.stop()
+    del obj
+
+    arr = []
+
+    for item in res:
+        arr.append(item["id"])
+        
+    return arr
 
 
+def addReportMorningDB(message):
+    obj = DB(message)
+    obj.start()
+
+    res = obj.addReportMorninig()
+
+    obj.stop()
+    del obj
+    return res
 
 
+def addReportDinnerDB(message):
+    obj = DB(message)
+    obj.start()
+
+    res = obj.addReportDinner()
+
+    obj.stop()
+    del obj
+    return res
 
 
+def addReportEveninigDB(message):
+    obj = DB(message)
+    obj.start()
+
+    res = obj.addReportEveninig()
+
+    obj.stop()
+    del obj
+    return res
 
 
+def addNullDB(users, upload):
+    obj = DB()
+    obj.start()
 
+    res = obj.addNull(users, upload)
 
-
-
-
-
-
-
-
-
+    obj.stop()
+    del obj
+    return res
