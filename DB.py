@@ -103,7 +103,6 @@ def getUserIDDB(request):
         
     return arr
 
-
 def addReportMorningDB(message):
     obj = DB(message)
     obj.start()

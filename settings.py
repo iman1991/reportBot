@@ -19,6 +19,7 @@ request4 = """
 	INSERT INTO `report`.`report` (`id`) VALUES ('12312');
 """
 
+
 question1 = "Какие планы на сегодня?\n\nНапишите:"
 question2 = "Что сделанно?\n\nНапишите:"
 question3 = "Что сделал за день?\n\nНапишите:"
