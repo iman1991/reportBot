@@ -63,10 +63,10 @@ def handle_messageMorning(message):
 	addReportMorningDB(message)
 
 def handle_messageDinner(message):
-	addReportMorningDB(message)
+	addReportDinnerDB(message)
 
 def handle_messageEvening(message):
-	addReportMorningDB(message)
+	addReportEveninigDB(message)
 
 
 if __name__ == "__main__":
