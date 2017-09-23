@@ -69,6 +69,7 @@ def handle_messageEvening(message):
 	addReportEveninigDB(message)
 
 
+
 if __name__ == "__main__":
 	thraed = threading.Thread(target=cycle)
 	thraed.start()
