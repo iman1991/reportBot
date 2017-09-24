@@ -20,7 +20,7 @@ def handle_start(message):
 
 
 def cycle():
-	time = 10
+	time = 9
 	while True:
 		now = datetime.now()
 		if (now.hour == time):
@@ -48,13 +48,13 @@ def handlerMorning(request):
 def handlerDinner(request):
 	users = getUserIDDB(request)
 	for item in users:
-		sent = bot.send_message(item, question1)
+		sent = bot.send_message(item, question2)
 		bot.register_next_step_handler(sent, handle_messageDinner)
 
 def handlerEvening(request):
 	users = getUserIDDB(request)
 	for item in users:
-		sent = bot.send_message(item, question1)
+		sent = bot.send_message(item, question3)
 		bot.register_next_step_handler(sent, handle_messageEvening)
 
 
