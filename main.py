@@ -20,7 +20,7 @@ def handle_start(message):
 
 
 def cycle():
-	time = 9
+	time = 10
 	while True:
 		now = datetime.now()
 		if (now.hour == time):
