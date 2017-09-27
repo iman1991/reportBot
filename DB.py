@@ -45,9 +45,9 @@ class DB:
 
     def addReportMorninig(self):
         now = datetime.now()
-        now = now.time()
+        nowtime = now.time()
         print(now)
-        self.cursor.execute("UPDATE report SET morning='%s', come='%s' WHERE id='%i' and upload = '%s'" % (self.request.text, now, self.request.from_user.id, now.date()))
+        self.cursor.execute("UPDATE report SET morning='%s', come='%s' WHERE id='%i' and upload = '%s'" % (self.request.text, nowtime, self.request.from_user.id, now.date()))
         self.conn.commit()
         return True
 
@@ -58,8 +58,8 @@ class DB:
 
     def addReportEveninig(self):
         now = datetime.now()
-        now = now.time()
-        self.cursor.execute("UPDATE report SET evening='%s', gone='%s' WHERE id='%i' and upload = '%s'" % (self.request.text, now, elf.request.from_user.id, now.date()))
+        nowtime = now.time()
+        self.cursor.execute("UPDATE report SET evening='%s', gone='%s' WHERE id='%i' and upload = '%s'" % (self.request.text, nowtime, elf.request.from_user.id, now.date()))
         self.conn.commit()
         return True
 
