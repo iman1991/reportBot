@@ -23,7 +23,7 @@ def cycle():
 	time = 9
 	while True:
 		now = datetime.now()
-		print(now)
+		print(now.time)
 		# if (now.hour == time):
 		# 	addNullDB(getUserIDDB(request3), now.date())
 		# 	time = time + 3
