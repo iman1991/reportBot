@@ -46,7 +46,6 @@ class DB:
     def addReportMorninig(self):
         now = datetime.now()
         nowtime = now.time()
-        print(now)
         self.cursor.execute("UPDATE report SET morning='%s', come='%s' WHERE id='%i' and upload = '%s'" % (self.request.text, nowtime, self.request.from_user.id, now.date()))
         self.conn.commit()
         return True
