@@ -23,23 +23,22 @@ def cycle():
 	time = 9
 	while True:
 		now = datetime.now()
-		print(now.time)
-		# if (now.hour == time):
-		# 	addNullDB(getUserIDDB(request3), now.date())
-		# 	time = time + 3
-		# 	handlerMorning(request3)
+		if (now.hour == time):
+			addNullDB(getUserIDDB(request3), now.date())
+			time = time + 3
+			handlerMorning(request3)
 
-		# if (now.hour == time):
-		# 	time = time + 6
-		# 	handlerDinner(request3)
+		if (now.hour == time):
+			time = time + 6
+			handlerDinner(request3)
 
-		# if (now.hour == time):
-		# 	time = time - 9
-		# 	handlerEvening(request3)
-
+		if (now.hour == time):
+			time = time - 9
+			handlerEvening(request3)
 
 
-def handlerMorning(request):
+
+def handlerMorning(request, now):
 	users = getUserIDDB(request)
 	for item in users:
 		sent = bot.send_message(item, question1)
@@ -52,7 +51,7 @@ def handlerDinner(request):
 		sent = bot.send_message(item, question2)
 		bot.register_next_step_handler(sent, handle_messageDinner)
 
-def handlerEvening(request):
+def handlerEvening(request, now):
 	users = getUserIDDB(request)
 	for item in users:
 		sent = bot.send_message(item, question3)
