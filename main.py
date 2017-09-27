@@ -22,19 +22,7 @@ def handle_start(message):
 def cycle():
 	time = 15
 	while True:
-		now = datetime.now()
-		if (now.hour == time):
-			addNullDB(getUserIDDB(request3), now.date())
-			time = time + 3
-			handlerMorning(request3)
-
-		if (now.hour == time):
-			time = time + 6
-			handlerDinner(request3)
-
-		if (now.hour == time):
-			time = time - 9
-			handlerEvening(request3)
+		pass
 
 
 
