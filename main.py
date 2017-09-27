@@ -42,8 +42,7 @@ def handlerMorning(request):
 	users = getUserIDDB(request)
 	print(users)
 	for item in users:
-		sent = bot.send_message(item, question1)
-		bot.register_next_step_handler(sent, handle_messageMorning)
+		bot.send_message(item, question1)
 
 
 def handlerDinner(request):
