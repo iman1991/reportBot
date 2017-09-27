@@ -22,6 +22,7 @@ def handle_start(message):
 def cycle():
 	time = 9
 	while True:
+		pass
 		# now = datetime.now()
 		# if (now.hour == time):
 		# 	addNullDB(getUserIDDB(request3), now.date())
