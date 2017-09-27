@@ -20,7 +20,7 @@ def handle_start(message):
 
 
 def cycle():
-	time = 9
+	time = 10
 	while True:
 		now = datetime.now()
 		if (now.hour == time):
@@ -66,7 +66,6 @@ def handle_messageDinner(message):
 
 def handle_messageEvening(message):
 	addReportEveninigDB(message)
-
 
 
 if __name__ == "__main__":
