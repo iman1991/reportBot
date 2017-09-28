@@ -51,6 +51,7 @@ class DB:
         return True
 
     def addReportDinner(self):
+        now = datetime.now()
         self.cursor.execute("UPDATE report SET dinner='%s' WHERE id='%i' and upload = '%s'" % (self.request.text, self.request.from_user.id, now.date()))
         self.conn.commit()
         return True
