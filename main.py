@@ -29,17 +29,17 @@ def cycle():
 			Morning = 0
 			Evening = 18
 			addNullDB(getUserIDDB(request3), now.date())
-			# handlerMorning(request3)
+			handlerMorning(request3)
 
-		# if (now.hour == Dinner):
-		# 	Morning = 12
-		# 	Dinner = 0
-		# 	handlerDinner(request3)
+		if (now.hour == Dinner):
+			Morning = 12
+			Dinner = 0
+			handlerDinner(request3)
 
-		# if (now.hour == Evening):
-		# 	Dinner = 13
-		# 	Evening = 0
-		# 	handlerEvening(request3)
+		if (now.hour == Evening):
+			Dinner = 13
+			Evening = 0
+			handlerEvening(request3)
 
 
 
