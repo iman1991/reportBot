@@ -20,7 +20,7 @@ def handle_start(message):
 
 
 def cycle():
-	Morning = 12
+	Morning = 9
 	Dinner = 13
 	Evening = 18
 	while True:
@@ -32,7 +32,7 @@ def cycle():
 			handlerMorning(request3)
 
 		if (now.hour == Dinner):
-			Morning = 12
+			Morning = 9
 			Dinner = 0
 			handlerDinner(request3)
 
