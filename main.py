@@ -20,20 +20,19 @@ def handle_start(message):
 
 
 def cycle():
-	time = 9
+	Morning = 9
+	Dinner = 13
+	Evening = 18
 	while True:
 		now = datetime.now()
-		if (now.hour == time):
+		if (now.hour == Morning):
 			addNullDB(getUserIDDB(request3), now.date())
-			time = time + 3
 			handlerMorning(request3)
 
-		if (now.hour == time):
-			time = time + 6
+		if (now.hour == Dinner):
 			handlerDinner(request3)
 
-		if (now.hour == time):
-			time = time - 9
+		if (now.hour == Evening):
 			handlerEvening(request3)
 
 
