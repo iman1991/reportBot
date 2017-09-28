@@ -11,15 +11,15 @@ welcome = """
 	Надеюсь наша работа с вами будет успешной.
 """
 
-request1 = "SELECT id FROM users WHERE id = %i"
-request2 = "INSERT INTO users (id, username) values (%i, '%s')"
-request3 = "SELECT id FROM users"
+selectKWhereID = "SELECT id FROM users WHERE id = %i"
+insertUser = "INSERT INTO users (id, username) values (%i, '%s')"
+selectUser = "SELECT id FROM users"
 request4 = """
 	INSERT INTO `report`.`report` (`id`) VALUES ('21312');
 	INSERT INTO `report`.`report` (`id`) VALUES ('12312');
 """
 
 
-question1 = "Какие планы на сегодня?\n\nНапишите:"
-question2 = "Что сделанно?\n\nНапишите:"
-question3 = "Что сделал за день?\n\nНапишите:"
+askPlans = "Какие планы на сегодня?\n\nНапишите:"
+askDone = "Что сделанно?\n\nНапишите:"
+askDoneAsDay = "Что сделал за день?\n\nНапишите:"
