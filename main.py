@@ -20,7 +20,7 @@ def handle_start(message):
 
 
 def cycle():
-	Morning = 9
+	Morning = 13
 	Dinner = 13
 	Evening = 18
 	while True:
